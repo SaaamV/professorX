@@ -1,6 +1,40 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+from itertools import count
+import random
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 import collections
+
+index = count()
+
+x = []
+y = []
+
+
+def update_data(i):
+    data = pd.read_csv('data.csv')
+    x = data['row/column']
+    y = data['row/column']
+    plt.cla()
+    plt.plot(x,y, label ='Channel name')
+
+    plt.legend()
+    plt.tight_layout()
+
+ani = FuncAnimation(plt.gcf(), update_data, interval = 300)
+
+
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+
+
+"""
 channel1 = collections.deque(np.zeros(10))
 channel2 = collections.deque(np.zeros(10))
 channel3 = collections.deque(np.zeros(10))
@@ -45,3 +79,6 @@ def update_data():
         ax[i-1][0].plot(eeg_dict[i])
     # clearing the axis
     ax.cla()
+
+
+"""

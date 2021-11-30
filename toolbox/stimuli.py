@@ -26,6 +26,7 @@ def display_left():
             canvas.create_line(75, 150, 225, 150, fill="black", width=10)
             canvas.create_line(75, 150, 150, 100, fill="black", width=10)
             canvas.create_line(75, 150, 150, 200, fill="black", width=10)
+            #os.system("python C:/Users/KHALS/OneDrive/Desktop/professorX/record.py")
             root.after(color_time_period, lambda: root.destroy())
             root.mainloop()
 
@@ -48,6 +49,7 @@ def display_right():
             canvas.create_line(75,150,225,150,fill="black",width=10)
             canvas.create_line(225,150,150,100,fill="black",width=10)
             canvas.create_line(225,150,150,200,fill="black",width=10)
+            #os.system("python C:/Users/KHALS/OneDrive/Desktop/professorX/record.py")
             root.after(color_time_period,lambda:root.destroy())
             root.mainloop()
 

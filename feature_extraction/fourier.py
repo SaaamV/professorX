@@ -1,10 +1,13 @@
 import numpy as np
 from scipy.fft import fft
 
+sampling_freq = 128
+
 x = np.array([1.0, 2.0, 1.0, -1.0, 1.5])
 y = fft(x)
 
-print(y)
+len_fft = y.size
+
 
 # broken code
 if y>=0.5 and y<=4:

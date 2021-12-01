@@ -1,24 +1,11 @@
 import numpy as np
+import pandas as pd
 from scipy.fft import fft
-
-sampling_freq = 128
-
-x = np.array([1.0, 2.0, 1.0, -1.0, 1.5])
-y = fft(x)
-
-len_fft = y.size
+import matplotlib.pyplot as plt
 
 
-# broken code
-if y>=0.5 and y<=4:
-    band = "D"
-elif y>4 and y<=8:
-    band = "T"
-elif y>8 and y<=12:
-    band = "A"
-elif y>12 and y<=30:
-    band = "B"
-else:
-    band= "useless"
+data = pd.read_csv()
+y = fft(data['Af3'])
 
-print(band)
+#plt.plot(abs(y))
+#plt.show

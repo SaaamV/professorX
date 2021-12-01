@@ -15,7 +15,7 @@ The eeg signal from each channel can be categorised into one of four frequency b
 Applies fourier transform on channel data.
 
 ## psd.py
-Uses the autocorrelation function to calculate the power spectral density for a particular channel
+Uses the welsch periodogram function to calculate the power spectral density for a particular channel and then relative band power for each of four frequency bands.
 
 ## wavelet.py
 Frequency-time analysis using wavelet-transform.

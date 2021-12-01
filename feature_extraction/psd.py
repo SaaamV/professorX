@@ -63,4 +63,7 @@ beta_power = simps(psd[beta], dx=freq_res)
 beta_rel_power = beta_power / total_power
 print('relative beta power = %.3f '% beta_rel_power)
 
+"""
+powers = [delta_rel_power, theta_rel_power, alpha_rel_power, beta_rel_power]
+"""
 

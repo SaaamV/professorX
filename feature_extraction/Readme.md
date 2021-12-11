@@ -20,6 +20,10 @@ Uses the welsch periodogram function to calculate the power spectral density for
 ## wavelet.py
 Frequency-time analysis using wavelet-transform.
 
+## feature.py
+A wrapper of sorts which encompasses all the other scripts in this folder in one class.
+
+
 
 
 

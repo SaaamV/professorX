@@ -1,6 +1,7 @@
 # Tool-box
 ### Prerequisites
-pip install pillow
+pip install pandas
+pip install PyQt6
 
 ## live-plot.py
 Plots the data from a csv file.

@@ -1,4 +1,4 @@
 from toolbox import Toolbox 
 
 obj = Toolbox()
-obj.stimuli(0)
+obj.stimuli(1000,0)

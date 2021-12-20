@@ -21,7 +21,7 @@ class Toolbox():
         df = pd.DataFrame(arr, columns=['Sequence'])
         df.to_csv('sequence.csv')
 
-    def stimuli(self,buffer):
+    def stimuli(self,period,buffer):
         # before running for the first time make sure you call random_gen() once.
         df = pd.read_csv(r"C:/Users/KHALS/OneDrive/Desktop/professorX/toolbox/sequence.csv")
         markers = df["Sequence"].to_numpy()
@@ -29,10 +29,10 @@ class Toolbox():
 
         for i in markers:
             if i==0:
-                self.display_left(1000)
+                self.display_left(period)
                 time.sleep(buffer)
             else:
-                self.display_right(1000)
+                self.display_right(period)
                 time.sleep(buffer)
         
 

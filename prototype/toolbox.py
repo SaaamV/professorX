@@ -23,7 +23,7 @@ class Toolbox():
 
     def stimuli(self,period,buffer):
         # before running for the first time make sure you call random_gen() once.
-        df = pd.read_csv(r"C:/Users/KHALS/OneDrive/Desktop/professorX/toolbox/sequence.csv")
+        df = pd.read_csv(r"C:/Users/KHALS/OneDrive/Desktop/professorX/prototype/sequence.csv")
         markers = df["Sequence"].to_numpy()
         # imports the binary values from sequence.csv into a list named markers
 

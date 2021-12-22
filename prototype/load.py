@@ -44,6 +44,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.pushButton_7.setCheckable(True)
         self.pushButton_7.clicked.connect(self.the_chosen_ones)
+        self.pushButton_8.setCheckable(True)
+        self.btn_ctr = 2
+        self.pushButton_8.clicked.connect(self.select_all_channels)
 
 
 
@@ -63,11 +66,44 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def the_end(self):
         sys.exit("Recording Stopped")
 
+    def select_all_channels(self):
+        if self.btn_ctr % 2 == 0:
+            self.AF3.setChecked(True)
+            self.F7.setChecked(True)
+            self.F3.setChecked(True)
+            self.FC5.setChecked(True)
+            self.T7.setChecked(True)
+            self.P7.setChecked(True)
+            self.O1.setChecked(True)
+            self.O2.setChecked(True)
+            self.P8.setChecked(True)
+            self.T8.setChecked(True)
+            self.FC6.setChecked(True)
+            self.F4.setChecked(True)
+            self.F8.setChecked(True)
+            self.AF4.setChecked(True)
+        else:
+            self.AF3.setChecked(False)
+            self.F7.setChecked(False)
+            self.F3.setChecked(False)
+            self.FC5.setChecked(False)
+            self.T7.setChecked(False)
+            self.P7.setChecked(False)
+            self.O1.setChecked(False)
+            self.O2.setChecked(False)
+            self.P8.setChecked(False)
+            self.T8.setChecked(False)
+            self.FC6.setChecked(False)
+            self.F4.setChecked(False)
+            self.F8.setChecked(False)
+            self.AF4.setChecked(False)
+        self.btn_ctr = self.btn_ctr + 1
+
     def the_chosen_ones(self):
         self.mask = [self.AF3.isChecked(),self.F7.isChecked(),self.F3.isChecked(),self.FC5.isChecked(),self.T7.isChecked(),self.P7.isChecked(),self.O1.isChecked(),self.O2.isChecked(),self.P8.isChecked(),self.T8.isChecked(),self.FC6.isChecked(),self.F4.isChecked(),self.F8.isChecked(),self.AF4.isChecked()]
         # print(self.mask)
         self.channels = [x for x, y in zip(self.checklist, self.mask) if y == True]
-        print(self.channels)
+        # print(self.channels)
 
 
 

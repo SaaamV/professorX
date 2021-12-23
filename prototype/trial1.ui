@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
+      <y>10</y>
       <width>761</width>
       <height>551</height>
      </rect>
@@ -106,80 +106,26 @@
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>11</y>
-        <width>711</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="text">
-          <string>Power Spectral Density</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QPushButton" name="pushButton_5">
-         <property name="text">
-          <string>Fourier Transform</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Common Spatial Pattern</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="text">
-          <string>Wavelet Transform</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>161</y>
-        <width>231</width>
+        <x>30</x>
+        <y>20</y>
+        <width>182</width>
         <height>300</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <layout class="QGridLayout" name="gridLayout_3">
-         <item row="3" column="1">
-          <widget class="QCheckBox" name="FC6">
+         <item row="6" column="0">
+          <widget class="QCheckBox" name="O1">
            <property name="text">
-            <string>FC6</string>
+            <string>O1</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QCheckBox" name="F3">
+         <item row="1" column="0">
+          <widget class="QCheckBox" name="F7">
            <property name="text">
-            <string>F3</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QCheckBox" name="AF4">
-           <property name="text">
-            <string>AF4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QCheckBox" name="F8">
-           <property name="text">
-            <string>F8</string>
+            <string>F7</string>
            </property>
           </widget>
          </item>
@@ -204,38 +150,10 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QCheckBox" name="F7">
+         <item row="0" column="1">
+          <widget class="QCheckBox" name="O2">
            <property name="text">
-            <string>F7</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QCheckBox" name="T7">
-           <property name="text">
-            <string>T7</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QCheckBox" name="F4">
-           <property name="text">
-            <string>F4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
-          <widget class="QCheckBox" name="O1">
-           <property name="text">
-            <string>O1</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QCheckBox" name="P8">
-           <property name="text">
-            <string>P8</string>
+            <string>O2</string>
            </property>
           </widget>
          </item>
@@ -246,10 +164,52 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QCheckBox" name="O2">
+         <item row="4" column="0">
+          <widget class="QCheckBox" name="T7">
            <property name="text">
-            <string>O2</string>
+            <string>T7</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="AF4">
+           <property name="text">
+            <string>AF4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QCheckBox" name="F4">
+           <property name="text">
+            <string>F4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QCheckBox" name="P8">
+           <property name="text">
+            <string>P8</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QCheckBox" name="F3">
+           <property name="text">
+            <string>F3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QCheckBox" name="F8">
+           <property name="text">
+            <string>F8</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QCheckBox" name="FC6">
+           <property name="text">
+            <string>FC6</string>
            </property>
           </widget>
          </item>
@@ -266,6 +226,65 @@
         <widget class="QPushButton" name="pushButton_7">
          <property name="text">
           <string>Update Channel Selection</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>30</y>
+        <width>201</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <property name="text">
+          <string>Choose features</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox">
+         <property name="text">
+          <string>Relative PSD</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_2">
+         <property name="text">
+          <string>Common Spatial Patterns</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_3">
+         <property name="text">
+          <string>Wavelet Transform</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Save to CSV</string>
          </property>
         </widget>
        </item>

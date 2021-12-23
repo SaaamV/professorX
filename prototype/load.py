@@ -44,9 +44,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.pushButton_7.setCheckable(True)
         self.pushButton_7.clicked.connect(self.the_chosen_ones)
+        # pushbutton to update channel selection
+
         self.pushButton_8.setCheckable(True)
         self.btn_ctr = 2
         self.pushButton_8.clicked.connect(self.select_all_channels)
+        # pushbutton to select all channels
+
+        self.pushButton_2.setCheckable(True)
+        self.pushButton_2.clicked.connect(self.save_to_csv)
 
 
 
@@ -97,6 +103,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.F4.setChecked(False)
             self.F8.setChecked(False)
             self.AF4.setChecked(False)
+            
         self.btn_ctr = self.btn_ctr + 1
 
     def the_chosen_ones(self):
@@ -104,6 +111,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(self.mask)
         self.channels = [x for x, y in zip(self.checklist, self.mask) if y == True]
         # print(self.channels)
+    
+    def save_to_csv(self):
+        feat = Feature(self.channels, self.t3)
+        if self.checkBox.isChecked():
+            feat.relative_psd()
+        # if self.checkBox_2.isChecked() :
+            
+        
+
 
 
 

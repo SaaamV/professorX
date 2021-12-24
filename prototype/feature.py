@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy import signal
 from scipy.integrate import simps
+# import matplotlib.pyplot as plt
 import pywt
 
 # must choose channel from 14 channels: AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4
@@ -58,7 +59,6 @@ class Feature():
                 plt.ylabel('Power spectral density')
                 plt.title("Welch's periodogram")
                 """
-
                 # delta band 
                 low = 0.5
                 high = 4
@@ -115,10 +115,17 @@ class Feature():
         self.feature = self.feature.drop('Redundant', axis=1)
         self.feature.to_csv('feature.csv')
 
-    def wavelet(self, channel):
+    def wavelet(self):
         data = pd.read_csv(self.filename)
-        sig = data[channel]
-        dec=pywt.wavedec(sig, wavelet = 'db4', level=4)
+        data.to_csv('data1.csv', header = False)
+        data = pd.read_csv("data1.csv")
+        for i in self.channels :
+            sig = data[i]
+            dec=pywt.wavedec(sig, wavelet = 'db4', level=4)
+            print(i)
+            print("******************")
+            print(dec)
+
 
     def save_to_file(self, channel, feature):
         # saves psd to csv

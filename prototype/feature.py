@@ -22,7 +22,7 @@ class Feature():
 
     # function plots welchs periodogram and calculates area under the curve for respective frequency band using composite simpsons rules
     def relative_psd(self):
-        print(self.readings)
+        # print(self.readings)
         fs = 128
         t = 3
         # t is the duration of the signal, this value must be same is record.py and stimuli/cues.py as well
@@ -40,12 +40,15 @@ class Feature():
         arr = range(self.readings)
         feature = pd.DataFrame(arr, columns=['Redundant'])
         feature.to_csv('feature.csv')
+        # creating a csv with redundant values which are later deleted.
         
 
         for i in self.channels:
+            # outer loop to iterate through channels
 
             indices = np.linspace(0, data[i].size, self.readings+1, dtype=int)
             for j in range(self.readings) :
+                # inner loop that iterates through readings in each channel
                 freqs, psd = signal.welch(data[i].iloc[indices[j] : indices[j+1]], fs,)
                 # nperseg=win_length
 
@@ -105,6 +108,7 @@ class Feature():
             self.theta_values = []
             self.alpha_values = []
             self.beta_values = []
+            # resetting lists for next channel
 
         
 
@@ -117,6 +121,7 @@ class Feature():
         dec=pywt.wavedec(sig, wavelet = 'db4', level=4)
 
     def save_to_file(self, channel, feature):
+        # saves psd to csv
         feature[channel+'delta'] = self.delta_values
         feature[channel+'theta'] = self.theta_values
         feature[channel+'alpha'] = self.alpha_values

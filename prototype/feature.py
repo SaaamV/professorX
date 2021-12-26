@@ -8,7 +8,7 @@ import pywt
 # must choose channel from 14 channels: AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4
 class Feature():
 
-    def __init__(self, channels, readings, filename = "data.csv"):
+    def __init__(self, channels, readings, filename = "left.csv"):
         # name of file where data is being stored along with extension
         self.filename = filename
         self.channels = channels

@@ -116,6 +116,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         feat = Feature(self.channels, self.t3)
         if self.checkBox.isChecked():
             feat.relative_psd()
+        # if self.checkBox_2.isChecked():
+            # feat.psd()
         if self.checkBox_3.isChecked() :
             feat.wavelet()
             

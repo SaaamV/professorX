@@ -13,19 +13,55 @@ class Feature():
         self.filename = filename
         self.channels = channels
         self.readings = readings
+
+        self.psd_values = []
         self.delta_values = []
         self.theta_values = []
         self.alpha_values = []
         self.beta_values = []
+
         arr = range(self.readings)
         self.feature = pd.DataFrame(arr, columns=['Redundant'])
         self.feature.to_csv('feature.csv')
+        
+
+    def psd(self):
+        fs = 128
+
+        data = pd.read_csv(self.filename)
+        data.to_csv('data1.csv', header = False)
+        data = pd.read_csv("data1.csv")
+        # getting rid of garbage headers
+
+        arr = range(self.readings)
+        feature = pd.DataFrame(arr, columns=['Redundant'])
+        feature.to_csv('feature.csv')
+
+        for i in self.channels:
+            # outer loop to iterate through channels
+
+            indices = np.linspace(0, data[i].size, self.readings+1, dtype=int)
+            for j in range(self.readings) :
+                # inner loop that iterates through readings in each channel
+                freqs, psd = signal.welch(data[i].iloc[indices[j] : indices[j+1]], fs)
+                freq_res = freqs[1] - freqs[0]
+                total_power = simps(psd, dx=freq_res)
+                self.psd_values.append(total_power)
+                print(self.psd_values)
+                
+            # self.save_to_file(i, self.feature)
+            # self.psd_values = []
+
+
+
+
+
+
 
     # function plots welchs periodogram and calculates area under the curve for respective frequency band using composite simpsons rules
     def relative_psd(self):
         # print(self.readings)
         fs = 128
-        t = 3
         # t is the duration of the signal, this value must be same is record.py and stimuli/cues.py as well
 
         # N = fs * t
@@ -50,7 +86,7 @@ class Feature():
             indices = np.linspace(0, data[i].size, self.readings+1, dtype=int)
             for j in range(self.readings) :
                 # inner loop that iterates through readings in each channel
-                freqs, psd = signal.welch(data[i].iloc[indices[j] : indices[j+1]], fs,)
+                freqs, psd = signal.welch(data[i].iloc[indices[j] : indices[j+1]], fs)
                 # nperseg=win_length
 
                 """
@@ -133,6 +169,8 @@ class Feature():
         feature[channel+'theta'] = self.theta_values
         feature[channel+'alpha'] = self.alpha_values
         feature[channel+'beta'] = self.beta_values
+
+        # feature[channel+'PSD'] = self.psd_values
         
         
 

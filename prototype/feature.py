@@ -9,7 +9,7 @@ import pywt
 class Feature():
 
     def __init__(self, channels, readings, filename = "left.csv"):
-        # name of file where data is being stored along with extension
+        # name of file where data is stored along with extension
         self.filename = filename
         self.channels = channels
         self.readings = readings

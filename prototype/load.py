@@ -1,7 +1,9 @@
 from toolbox import Toolbox
 from feature import Feature 
 import sys
+import os
 from PyQt6 import QtWidgets, uic
+from PyQt6.QtCore import QObject, QThread, pyqtSignal
 
 from MainWindow import Ui_MainWindow
 
@@ -61,6 +63,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         obj = Toolbox()
         # total_time = (self.t1 + self.t2)*self.t3
         obj.random_gen(self.t3)
+        self.record_EEG()
         obj.stimuli(self.t1*1000,self.t2)
         
 
@@ -120,6 +123,33 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             # feat.psd()
         if self.checkBox_3.isChecked() :
             feat.wavelet()
+    
+    def record_EEG(self):
+        self.thread = QThread()
+        self.worker = Worker()
+
+        self.worker.moveToThread(self.thread)
+        self.thread.started.connect(self.worker.start)
+        self.worker.finished.connect(self.thread.quit)
+
+        # display fixation cross till it actually start recording
+
+        # self.worker.finished.connect(self.worker.deleteLater)
+        
+        # self.thread.finished.connect(self.thread.deleteLater)
+        self.thread.start()
+
+
+
+# worker thread to record EEG using Cortex API
+class Worker(QObject):
+    finished = pyqtSignal()
+
+    def start(self):
+        os.system("python C:/Users/KHALS/OneDrive/Desktop/professorX/record.py")
+        self.finished.emit()
+        # trial, find alternative way to emit if this does not work.
+
             
         
 

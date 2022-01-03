@@ -4,6 +4,7 @@ from scipy import signal
 from scipy.integrate import simps
 # import matplotlib.pyplot as plt
 import pywt
+import scipy.signal
 
 # must choose channel from 14 channels: AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4
 class Feature():
@@ -53,13 +54,15 @@ class Feature():
             # self.psd_values = []
 
 
-
-
-
-
-
-    # function plots welchs periodogram and calculates area under the curve for respective frequency band using composite simpsons rules
     def relative_psd(self):
+        """
+        function uses welch periodogram to get power spectral density and then uses composite simpsons rule to get spectral density for
+        specified frequencies.
+
+        Saves calculated values to a CSV file.
+        By default calculates for alpha, beta, theta and gamma frequency bands for each channel.
+
+        """
         # print(self.readings)
         fs = 128
         # t is the duration of the signal, this value must be same is record.py and stimuli/cues.py as well
@@ -150,6 +153,12 @@ class Feature():
 
         self.feature = self.feature.drop('Redundant', axis=1)
         self.feature.to_csv('feature.csv')
+
+    def band_pass(self, low, high, order):
+        """
+        Function to apply band-pass butterworth filter.
+        """
+        
 
     def wavelet(self):
         data = pd.read_csv(self.filename)

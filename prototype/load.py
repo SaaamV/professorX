@@ -1,5 +1,6 @@
 from toolbox import Toolbox
-from feature import Feature 
+from feature import Feature
+from plot import PlotEEG, PlotFFT 
 import sys
 import os
 from PyQt6 import QtWidgets, uic
@@ -55,6 +56,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.pushButton_2.setCheckable(True)
         self.pushButton_2.clicked.connect(self.save_to_csv)
+
+        self.pushButton_3.setCheckable(True)
+        self.pushButton_3.clicked.connect(self.plot_raw)
+        self.plot_eeg = PlotEEG(self.channels)
+
+        self.pushButton_4.setCheckable(True)
+        self.pushButton_4.clicked.connect(self.plot_fourier)
+        self.plot_fft = PlotFFT(self.channels)
 
 
 
@@ -114,6 +123,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # print(self.mask)
         self.channels = [x for x, y in zip(self.checklist, self.mask) if y == True]
         # print(self.channels)
+        self.plot_eeg = PlotEEG(self.channels)
+        self.plot_fft = PlotFFT(self.channels)
     
     def save_to_csv(self):
         feat = Feature(self.channels, self.t3)
@@ -123,6 +134,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             # feat.psd()
         if self.checkBox_3.isChecked() :
             feat.wavelet()
+    
+    def plot_raw(self):
+        self.plot_eeg.show()
+
+    def plot_fourier(self):
+        self.plot_fft.show()
+    
+
+        
+
     
     def record_EEG(self):
         self.thread = QThread()
